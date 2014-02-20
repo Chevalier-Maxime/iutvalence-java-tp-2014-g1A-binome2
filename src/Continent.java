@@ -1,4 +1,4 @@
-
+/* TODO Javadoc */
 public class Continent
 {
 	public final String nom;
