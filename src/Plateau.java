@@ -1,4 +1,4 @@
-
+/* TODO Javadoc */
 public class Plateau
 {
 	Continent continents[];
