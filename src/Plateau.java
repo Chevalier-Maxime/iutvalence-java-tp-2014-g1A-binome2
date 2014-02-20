@@ -1,4 +1,5 @@
 /* TODO Javadoc */
+/* TODO Pourquoi est-ce que toutes ces Region sont des attributs et non des variables locales ? */
 public class Plateau
 {
 	Continent continents[];
