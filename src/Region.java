@@ -1,4 +1,4 @@
-
+/* TODO Javadoc. */
 public class Region
 {
 	public final String nom;
