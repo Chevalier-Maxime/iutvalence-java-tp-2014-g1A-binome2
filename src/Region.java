@@ -10,12 +10,13 @@ public class Region
 		this.nbArmee=0;
 	}
 	
-	public void addVoisin(Region voisin) {
-		
-	}
+
 	
-	public void addVoisins(Region[] voisins) {
+	
+	public void ajouterVoisins(Region[] voisins) {
 		
+		this.voisins=voisins ;		// a verifier
+			
 	}
 }
 

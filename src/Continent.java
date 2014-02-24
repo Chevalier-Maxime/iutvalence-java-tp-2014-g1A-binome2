@@ -10,4 +10,8 @@ public class Continent
 		
 	}
 	
+	public void ajouterRegion(Region r){
+		//this.nom=nom;
+		
+	}
 }
