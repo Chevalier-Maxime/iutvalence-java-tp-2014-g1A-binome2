@@ -1,7 +1,9 @@
 /* TODO Javadoc */
 public class Plateau {
+    /* TODO Final ? Private ? */
     Continent continents[];
-    Region    regions[];
+    /* TODO Final ? Private ? */
+    Region regions[];
 
     public Plateau() {
         Region GrandeBretagne = new Region("Grande-Bretagne");
