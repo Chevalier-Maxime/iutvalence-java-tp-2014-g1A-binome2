@@ -1,9 +1,9 @@
 /* TODO Javadoc */
 public class Plateau {
     /* TODO Final ? Private ? */
-    Continent continents[];
+    private Continent continents[];
     /* TODO Final ? Private ? */
-    Region regions[];
+    private Region regions[];
 
     public Plateau() {
         Region GrandeBretagne = new Region("Grande-Bretagne");
@@ -14,7 +14,7 @@ public class Plateau {
         Region Ukraine = new Region("Ukraine");
         Region EuropeOccidentale = new Region("Europe Occidentale");
 
-        Continent Europe = new Continent("Europe");
+        Continent Europe = new Continent("Europe",new Region[]{GrandeBretagne,Islande,EuropeDuNord,Scandinavie,EuropeDuSud,Ukraine,EuropeOccidentale});
 
 
         Region Afghanistan = new Region("Afghanistan");
@@ -30,7 +30,7 @@ public class Plateau {
         Region Oural = new Region("Oural");
         Region Yakoutie = new Region("Yakoutie");
 
-        Continent Asie = new Continent("Asie");
+        Continent Asie = new Continent("Asie",new Region[]{Afghanistan,Chine,Inde,Tchita,Japon,Kamchatka,MoyenOrient,Mongolie,Siam,Siberie,Oural,Yakoutie});
 
 
         Region Alaska = new Region("Alaska");
@@ -43,7 +43,7 @@ public class Plateau {
         Region Quebec = new Region("Quebec");
         Region EtatsDeLOuest = new Region("Etats de l'ouest");
 
-        Continent AmeriqueDuNord = new Continent("Amérique du Nord");
+        Continent AmeriqueDuNord = new Continent("Amérique du Nord",new Region[]{Alaska,Alberta,AmeriqueCentrale,EtatsDeLEst,Groenland,TerritoiresDuNordOuest,Ontario,Quebec});
 
 
         Region Argentine = new Region("Argentine");
@@ -51,7 +51,7 @@ public class Plateau {
         Region Perou = new Region("Pérou");
         Region Venezuela = new Region("Venezuela");
 
-        Continent AmeriqueDuSud = new Continent("Amérique du Sud");
+        Continent AmeriqueDuSud = new Continent("Amérique du Sud",new Region[]{Argentine,Bresil,Perou,Venezuela});
 
 
         Region Congo = new Region("Congo");
@@ -61,7 +61,7 @@ public class Plateau {
         Region AfriqueDuNord = new Region("Afrique du Nord");
         Region AfriqueDuSud = new Region("Afrique du sud");
 
-        Continent Afrique = new Continent("Afrique");
+        Continent Afrique = new Continent("Afrique",new Region[]{Congo,AfriqueDeLEst,Egypte,Madagascar,AfriqueDuNord,AfriqueDuSud});
 
 
         Region AustralieOrientale = new Region("Australie Orientale");
@@ -69,7 +69,7 @@ public class Plateau {
         Region NouvelleGuinee = new Region("Nouvelle-Guinee");
         Region AustralieOccidentale = new Region("Australie Occidentale");
 
-        Continent Oceanie = new Continent("Oceanie");
+        Continent Oceanie = new Continent("Oceanie", new Region[]{AustralieOrientale,Indonesie,NouvelleGuinee,AustralieOccidentale});
 
         // Voisins de  l'indonésie
         Indonesie.ajouterVoisins(new Region[]{NouvelleGuinee, Siam});

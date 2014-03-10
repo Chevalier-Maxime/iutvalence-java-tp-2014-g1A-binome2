@@ -3,10 +3,13 @@
 public class Continent
 {
 	public final String nom;
+	private Region appartient[];
 	
 	
-	public Continent(String nom){
+	public Continent(String nom, Region[] appartient){
 		this.nom=nom;
+		this.appartient=appartient;
+		
 		
 	}
 	
