@@ -1,9 +1,10 @@
-/* TODO Javadoc */
+/* TODO Package. */
+/* TODO JavaDoc. */
 public class Plateau {
     /* TODO Final ? Private ? */
-    private Continent continents[];
+    private Continent[] continents;
     /* TODO Final ? Private ? */
-    private Region regions[];
+    private Region[] regions;
 
     public Plateau() {
         Region GrandeBretagne = new Region("Grande-Bretagne");
