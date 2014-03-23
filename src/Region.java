@@ -1,7 +1,3 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-
 /* TODO Package. */
 /* TODO JavaDoc. */
 public class Region {
@@ -71,19 +67,19 @@ public class Region {
 
 
             //Lance de dé d'attaques
-            resultatDeAttaque[0]=De.lanceDe();
+            resultatDeAttaque[0]=De.lancer();
             if (nbforceAttaque > 1) {
-            	resultatDeAttaque[1] = De.lanceDe();
+            	resultatDeAttaque[1] = De.lancer();
             }
             if (nbforceAttaque > 2) {
-            	resultatDeAttaque[2] = De.lanceDe();
+            	resultatDeAttaque[2] = De.lancer();
             }
             
 
             //Lancé de dé de defenses
-            resultatDeDefense[0] = De.lanceDe(); 
+            resultatDeDefense[0] = De.lancer();
             if (nbforceDefense>1){
-            	resultatDeDefense[1] = De.lanceDe();
+            	resultatDeDefense[1] = De.lancer();
             }
             
             //Trions les deux tableaux pour pouvoir les comparer
