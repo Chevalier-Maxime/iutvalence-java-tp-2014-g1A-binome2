@@ -1,6 +1,7 @@
 /* TODO Package. */
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 
 /**
@@ -86,10 +87,12 @@ public class Region {
             int deAttaque1, deAttaque2, deAttaque3;
             int deDefense1, deDefense2;
             /* TODO Votre code ne peut pas fonctionner si vous n'initialisez pas ces variables ! */
-            int[] resultatDeAttaque = null;
-            int[] resultatDeDefense = null;
+            Integer[] resultatDeAttaque = null;
+            Integer[] resultatDeDefense = null;
 
 
+            /* TODO Pourquoi ne pas rajouter une méthode dédiée dans la classe "De" ? */
+            /* TODO Ca pourrait être une méthode comme int[] lancer(int nombreDe) */
             //Lance de dé d'attaques
             resultatDeAttaque[0]=De.lancer();
             if (nbforceAttaque > 1) {
@@ -107,9 +110,9 @@ public class Region {
             }
 
             //Trions les deux tableaux pour pouvoir les comparer
-            triBulleDecroissant(resultatDeAttaque);
-            triBulleDecroissant(resultatDeDefense);
-            
+            Arrays.sort(resultatDeAttaque, 0, resultatDeAttaque.length, Collections.reverseOrder());
+            Arrays.sort(resultatDeDefense, 0, resultatDeDefense.length, Collections.reverseOrder());
+
             //Traitement du resultat des dés et mise a jour du nbr d'armées sur chaques régions.
         	int indiceTableau=0;
         	while (( indiceTableau != resultatDeAttaque.length) && (indiceTableau !=resultatDeDefense.length))
@@ -131,27 +134,6 @@ public class Region {
         }
 
     }
-    
-    public static void triBulleDecroissant(int tableau[]) {
-		int longueur = tableau.length;
-		int tampon = 0;
-		boolean permut;
- 
-		do {
-			// hypothèse : le tableau est trié
-			permut = false;
-			for (int i = 0; i < longueur - 1; i++) {
-				// Teste si 2 éléments successifs sont dans le bon ordre ou non
-				if (tableau[i] < tableau[i + 1]) {
-					// s'ils ne le sont pas, on échange leurs positions
-					tampon = tableau[i];
-					tableau[i] = tableau[i + 1];
-					tableau[i + 1] = tampon;
-					permut = true;
-				}
-			}
-		} while (permut);
-	}
 }
 
 
