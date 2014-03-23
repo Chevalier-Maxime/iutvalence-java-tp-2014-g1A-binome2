@@ -1,11 +1,19 @@
 /* TODO Package. */
-/* TODO JavaDoc. */
-public class Plateau {
-    /* TODO Final ? Private ? */
-    private Continent[] continents;
-    /* TODO Final ? Private ? */
-    private Region[] regions;
 
+/**
+ * TODO.
+ *
+ * @author TODO
+ * @version TODO
+ */
+public class Plateau {
+    /** TODO. */
+    private final Continent[] continents;
+    /** TODO. */
+    private final Region[] regions;
+
+    /* Divisez en méthodes privées ! */
+    /** TODO. */
     public Plateau() {
         Region GrandeBretagne = new Region("Grande-Bretagne");
         Region Islande = new Region("Islande");

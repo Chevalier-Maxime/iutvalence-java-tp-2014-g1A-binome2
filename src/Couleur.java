@@ -1,4 +1,12 @@
+/* TODO Package. */
 
+/* TODO À quoi sert cette classe ? */
+/**
+ * TODO.
+ *
+ * @author TODO
+ * @version TODO
+ */
 public enum Couleur
 {
 	NOIR,

@@ -11,7 +11,7 @@
  public class Application {
     public static void main(String[] args) {
         int i;
-        i = De.lanceDe();
+        i = De.lancer();
         System.out.println(i);
     }
 }

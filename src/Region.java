@@ -1,36 +1,53 @@
 /* TODO Package. */
-/* TODO JavaDoc. */
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+/**
+ * TODO.
+ *
+ * @author TODO
+ * @version TODO
+ */
 public class Region {
+    /** Nom de la région. */
     public final String   nom;
+    /** Taille de l'armée présente. */
     public       int      nbArmee;
-    /* TODO Change en cours de partie ? 
-     * Non, mais on doit créer toutes les régions avant de pouvoir dire leurs voisins*/
+    /* TODO Remplacez par des Collections pour simplifier. */
+    /** Voisins. */
     public       Region[] voisins;
+    /* TODO Où est la classe Joueur ? */
+    /** Propriétaire. */
     public Joueur proprietaire;
 
+    /** TODO. */
     public Region(String nom) {
         this.nom = nom;
         this.nbArmee = 0;
     }
 
+    /** TODO. */
     public void ajouterVoisins(Region[] voisins) {
         this.voisins = voisins;
     }
 
-    
+    /* TODO Vous pouvez faire mieux pour le nom de la méthode. */
+    /** TODO. */
     public void poserArmee(int i) {
         // TODO Peut être simplifié en "nbArmee += i;"
         this.nbArmee = nbArmee + i;
-
     }
 
-    
+    /* TODO Vous pouvez faire mieux pour le nom de la méthode. */
+    /** TODO. */
     public void enleverArmee(int i) {
         // TODO Peut être simplifié en "nbArmee -= i;"
         this.nbArmee = nbArmee - i;
 
     }
 
+    /** TODO. */
     public boolean estVoisin(Region r) {
         /* TODO Peut être simplifié en :
         for (Region region : voisins) {
@@ -40,16 +57,20 @@ public class Region {
         }
         return false;
          */
+        /* TODO Peut être encore plus simplifié avec des collections. */
         int i = 0;
 
+        /* TODO Pour comparer des objets utilisez la méthode equals ! */
         while ((r.nom != voisins[i].nom) && (i != voisins.length)) {
             i++;
         }
+        /* TODO À simplifier ! */
         if (r.nom == voisins[i].nom) { return true; }
         else { return false; }
 
     }
 
+    /** TODO. */
     public boolean attaquePossible(Region regionDefensive) {
         /* TODO Peut être simplifié !!! */
         if ((this.estVoisin(regionDefensive))&&(this.nbArmee > 1))
@@ -57,13 +78,16 @@ public class Region {
         return false;
     }  
 
+    /** TODO. */
     public void attaquer(Region regionDefensive, int nbforceAttaque, int nbforceDefense) {
         if (attaquePossible(regionDefensive)) {
 
+            /* TODO Variables inutilisées. */
             int deAttaque1, deAttaque2, deAttaque3;
             int deDefense1, deDefense2;
+            /* TODO Votre code ne peut pas fonctionner si vous n'initialisez pas ces variables ! */
             int[] resultatDeAttaque = null;
-            int[] resultatDeDefense = null; 
+            int[] resultatDeDefense = null;
 
 
             //Lance de dé d'attaques
@@ -81,7 +105,7 @@ public class Region {
             if (nbforceDefense>1){
             	resultatDeDefense[1] = De.lancer();
             }
-            
+
             //Trions les deux tableaux pour pouvoir les comparer
             triBulleDecroissant(resultatDeAttaque);
             triBulleDecroissant(resultatDeDefense);
@@ -90,22 +114,21 @@ public class Region {
         	int indiceTableau=0;
         	while (( indiceTableau != resultatDeAttaque.length) && (indiceTableau !=resultatDeDefense.length))
         	{
-        		if (resultatDeAttaque[indiceTableau]>resultatDeDefense[indiceTableau] )
-        			regionDefensive.enleverArmee(1);
-        		else
-        			this.enleverArmee(1);
+        		if (resultatDeAttaque[indiceTableau]>resultatDeDefense[indiceTableau] ) {
+                    regionDefensive.enleverArmee(1);
+                }
+                else {
+                    this.enleverArmee(1);
+                }
         		indiceTableau++;
         	}
         	
-        	//il manque le déplacement en fin de tour si attaquant gagne
-            
-
-
+        	// TODO Il manque le déplacement en fin de tour si attaquant gagne
         }
-        
-        else
-        	System.out.println("Vous ne pouvez pas attaquer cette région");
-        
+        else {
+            /* TODO Ce genre de méthode ne doit pas faire de println ! C'est contre-productif ! */
+            System.out.println("Vous ne pouvez pas attaquer cette région");
+        }
 
     }
     
@@ -129,8 +152,6 @@ public class Region {
 			}
 		} while (permut);
 	}
-    
-    
 }
 
 
