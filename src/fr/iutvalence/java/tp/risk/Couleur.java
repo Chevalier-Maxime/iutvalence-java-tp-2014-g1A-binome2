@@ -2,6 +2,7 @@ package fr.iutvalence.java.tp.risk;
 /* TODO Package. */
 
 /* TODO À quoi sert cette classe ? */
+/* On attribut une couleur à chaque joueur.
 /**
  * TODO.
  *
@@ -10,7 +11,7 @@ package fr.iutvalence.java.tp.risk;
  */
 public enum Couleur
 {
-	NOIR,
+	NOIR ,
 	ROUGE,
 	VERT,
 	BLEU,

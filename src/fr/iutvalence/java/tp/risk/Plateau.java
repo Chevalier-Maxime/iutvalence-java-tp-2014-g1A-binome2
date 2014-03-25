@@ -182,4 +182,11 @@ public class Plateau {
         this.regions = new Region[]{GrandeBretagne, Islande, EuropeDuNord, Scandinavie, EuropeDuSud, Ukraine, EuropeOccidentale, Afghanistan, Chine, Inde, Tchita, Japon, Kamchatka, MoyenOrient, Mongolie, Siam, Siberie, Oural, Yakoutie, Alaska, Alberta, AmeriqueCentrale, EtatsDeLOuest, Groenland, TerritoiresDuNordOuest, EtatsDeLEst, Ontario, Quebec, Argentine, Bresil, Perou, Venezuela, Congo, AfriqueDeLEst, Egypte, Madagascar, AfriqueDuNord, AfriqueDuSud, AustralieOrientale, AustralieOccidentale, Indonesie, NouvelleGuinee};
 
     }
+
+    public Region[] obtenirToutesLesRegions()
+    {
+    	
+		return this.regions;
+    }
+
 }

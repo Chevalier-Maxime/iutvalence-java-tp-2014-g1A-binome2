@@ -12,10 +12,10 @@ public class Continent {
     /** Nom du continent. */
     public final String   nom;
     /** Région appartenant au continent. */
-    private final Region[] appartient;
+    private final Region[] regions;
 
     public Continent(String nom, Region[] regions) {
         this.nom = nom;
-        this.appartient = regions;
+        this.regions = regions;
     }
 }

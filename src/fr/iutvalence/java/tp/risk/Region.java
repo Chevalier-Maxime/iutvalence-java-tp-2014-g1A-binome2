@@ -1,6 +1,7 @@
 package fr.iutvalence.java.tp.risk;
 /* TODO Package. */
 
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -36,7 +37,7 @@ public class Region {
 
     /* TODO Vous pouvez faire mieux pour le nom de la méthode. */
     /** TODO. */
-    public void poserArmee(int i) {
+    public void ajouterArmee(int i) {
         // TODO Peut être simplifié en "nbArmee += i;"
         this.nbArmee = nbArmee + i;
     }
@@ -66,9 +67,10 @@ public class Region {
         while ((r.nom != voisins[i].nom) && (i != voisins.length)) {
             i++;
         }
-        /* TODO À simplifier ! */
-        if (r.nom == voisins[i].nom) { return true; }
-        else { return false; }
+        
+        if (!(r.nom == voisins[i].nom))
+        	return false;
+        return true;
 
     }
 
@@ -80,16 +82,19 @@ public class Region {
         return false;
     }  
 
-    /** TODO. */
-    public void attaquer(Region regionDefensive, int nbforceAttaque, int nbforceDefense) {
+    /** TODO. 
+     * @return */
+    public boolean attaquer(Region regionDefensive, int nbforceAttaque, int nbforceDefense) {
         if (attaquePossible(regionDefensive)) {
 
-            /* TODO Variables inutilisées. */
-            int deAttaque1, deAttaque2, deAttaque3;
-            int deDefense1, deDefense2;
-            /* TODO Votre code ne peut pas fonctionner si vous n'initialisez pas ces variables ! */
+
+            
             Integer[] resultatDeAttaque = null;
+            resultatDeAttaque= new Integer[3];
+            
             Integer[] resultatDeDefense = null;
+            resultatDeDefense = new Integer[2];
+            
 
 
             /* TODO Pourquoi ne pas rajouter une méthode dédiée dans la classe "De" ? */
@@ -127,13 +132,39 @@ public class Region {
         		indiceTableau++;
         	}
         	
+        	return true;
+        	
         	// TODO Il manque le déplacement en fin de tour si attaquant gagne
         }
         else {
-            /* TODO Ce genre de méthode ne doit pas faire de println ! C'est contre-productif ! */
-            System.out.println("Vous ne pouvez pas attaquer cette région");
+            return false;
         }
 
+    }
+    
+    public void attribuerRegion(Joueur joueur, int nombreDeJoueur, Plateau plateau )
+    {
+    	Region[] toutesLesRegions = plateau.obtenirToutesLesRegions();
+    	int nbRegionAAtribuer = toutesLesRegions.length/nombreDeJoueur;
+    	
+    	for(int nbRegionAtribuer = 0; nbRegionAtribuer<=nbRegionAAtribuer; nbRegionAtribuer++)
+    	{
+    		int indiceRegion = new SecureRandom().nextInt(toutesLesRegions.length) + 1;
+    		
+    		while (toutesLesRegions[indiceRegion]==null)
+    		{
+    			indiceRegion = new SecureRandom().nextInt(toutesLesRegions.length) + 1;
+    		}
+    		
+    		toutesLesRegions[indiceRegion].proprietaire = joueur;
+    		joueur.obtenirRegionDuJoueur()
+    		toutesLesRegions[indiceRegion]=null;
+    		
+    		
+    	}
+    	
+    	
+    	
     }
 }
 
