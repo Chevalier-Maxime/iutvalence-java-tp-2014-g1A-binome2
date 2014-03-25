@@ -1,3 +1,4 @@
+package fr.iutvalence.java.tp.risk;
 /* TODO Package. */
 
 /* TODO À quoi sert cette classe ? */

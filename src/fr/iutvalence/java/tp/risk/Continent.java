@@ -1,3 +1,5 @@
+package fr.iutvalence.java.tp.risk;
+
 /* TODO Package. */
 
 /**

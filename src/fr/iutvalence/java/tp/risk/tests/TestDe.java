@@ -1,3 +1,6 @@
+package fr.iutvalence.java.tp.risk.tests;
+import fr.iutvalence.java.tp.risk.De;
+
 /* TODO Package. */
 
 /**
@@ -7,8 +10,8 @@
  * @version TODO
  */
 
-/**
- public class Application {
+
+ public class TestDe {
     public static void main(String[] args) {
         int i;
         i = De.lancer();
@@ -16,4 +19,3 @@
     }
 }
 
- */

@@ -1,3 +1,4 @@
+package fr.iutvalence.java.tp.risk;
 /* TODO Package. */
 import java.security.SecureRandom;
 

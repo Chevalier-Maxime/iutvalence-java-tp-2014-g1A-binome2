@@ -1,3 +1,4 @@
+package fr.iutvalence.java.tp.risk.gui;
 /* TODO Package. */
 /* TODO JavaDoc. */
 public class Risk {
