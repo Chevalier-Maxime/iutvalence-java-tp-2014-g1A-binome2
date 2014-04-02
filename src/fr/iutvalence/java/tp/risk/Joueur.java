@@ -1,28 +1,32 @@
 package fr.iutvalence.java.tp.risk;
 
+import java.security.SecureRandom;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Joueur
 {
-	private final String NomJoueur;
+	private final String nomJoueur;
 	private final Couleur couleur;
-	private Region[] RegionDuJoueur; // est-ce pertinent ?
+	private Set<Region> RegionDuJoueur; // est-ce pertinent ?
 	
-	public Joueur(Couleur couleur, int numeroDuJoueur)
+	public Joueur(Couleur couleur, int numeroDuJoueur, Region[] regions)
 	{
 		this.couleur = couleur;
-		this.NomJoueur="Joueur"+numeroDuJoueur;
-		this.RegionDuJoueur = new Region[50];
-		
+		this.nomJoueur="Joueur"+numeroDuJoueur;
+		this.RegionDuJoueur = new HashSet<Region>(Arrays.asList(regions));
 	}
 	
 	public Region[] obtenirRegionDuJoueur()
 	{
-		return this.RegionDuJoueur;
+		return RegionDuJoueur.toArray(null);
 	}
 	
 	//en travaux
 	public void ajouterRegionDuJoueur(Region region)
 	{
-		this.RegionDuJoueurRegion[region];
+		this.RegionDuJoueur.add(region);
 	}
 
 	public Couleur obtenirCouleurJoueur()
@@ -32,7 +36,6 @@ public class Joueur
 
 	public String obtenirNomJoueur()
 	{
-		return NomJoueur;
+		return nomJoueur;
 	}
-	
 }

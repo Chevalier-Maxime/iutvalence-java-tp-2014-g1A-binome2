@@ -6,6 +6,8 @@ public class PartieDeRisk
 	private int nombreDeJoueurs;
 	private final Joueur[] joueursDeLaPartie;
 	
+	
+	
 	public PartieDeRisk(int nombreDeJoueurs)
 	{
 		this.plateau = new Plateau();
@@ -15,7 +17,7 @@ public class PartieDeRisk
 		
 		for(int numeroDuJoueur = 0; numeroDuJoueur<this.nombreDeJoueurs; numeroDuJoueur++)
 		{
-			joueursDeLaPartie[numeroDuJoueur] = new Joueur(Couleur.values()[numeroDuJoueur], numeroDuJoueur);
+			joueursDeLaPartie[numeroDuJoueur] = new Joueur(Couleur.values()[numeroDuJoueur], numeroDuJoueur,plateau.obtenirRegion(2));
 		}
 		
 		

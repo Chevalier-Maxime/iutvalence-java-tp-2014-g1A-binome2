@@ -28,6 +28,7 @@ public class Region {
     public Region(String nom) {
         this.nom = nom;
         this.nbArmee = 0;
+        this.proprietaire=null;
     }
 
     /** TODO. */
@@ -142,30 +143,9 @@ public class Region {
 
     }
     
-    public void attribuerRegion(Joueur joueur, int nombreDeJoueur, Plateau plateau )
-    {
-    	Region[] toutesLesRegions = plateau.obtenirToutesLesRegions();
-    	int nbRegionAAtribuer = toutesLesRegions.length/nombreDeJoueur;
-    	
-    	for(int nbRegionAtribuer = 0; nbRegionAtribuer<=nbRegionAAtribuer; nbRegionAtribuer++)
-    	{
-    		int indiceRegion = new SecureRandom().nextInt(toutesLesRegions.length) + 1;
-    		
-    		while (toutesLesRegions[indiceRegion]==null)
-    		{
-    			indiceRegion = new SecureRandom().nextInt(toutesLesRegions.length) + 1;
-    		}
-    		
-    		toutesLesRegions[indiceRegion].proprietaire = joueur;
-    		joueur.obtenirRegionDuJoueur()
-    		toutesLesRegions[indiceRegion]=null;
-    		
-    		
-    	}
-    	
-    	
-    	
-    }
+    
+    
+    
 }
 
 

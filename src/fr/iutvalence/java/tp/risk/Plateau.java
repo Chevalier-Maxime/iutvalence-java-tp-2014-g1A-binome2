@@ -1,5 +1,7 @@
 package fr.iutvalence.java.tp.risk;
 
+import java.security.SecureRandom;
+
 /* TODO Package. */
 
 /**
@@ -183,10 +185,55 @@ public class Plateau {
 
     }
 
-    public Region[] obtenirToutesLesRegions()
+    /*public Region[] obtenirToutesLesRegions()
     {
-    	
 		return this.regions;
     }
-
+    
+    public Region[] obtenirToutesLesRegionsNonAttribuee()
+    {
+    	Region[] toutesLesRegions = obtenirToutesLesRegions();
+    	Region[] regionNonAttribuee = new Region[toutesLesRegions.length];
+    	int indice=0;
+    	
+    	for (Region region : toutesLesRegions) {
+    		if (region.proprietaire == null) {
+    			regionNonAttribuee[indice++] = region;
+    		}
+    	}
+    	
+    	return regionNonAttribuee;
+    }*/
+    
+    //exemple : https://github.com/Piplouf/iutvalence-java-tp-2014-g2c-binome3/blob/master/src/JeuDeCarte.java
+    
+    public Region[] obtenirRegion(int taille) {
+    	assert (taille > 0) && (nombre < this.toutesLesRegions.length);
+    	
+    	Region[] aRenvoyer = new Region[taille];
+    	Region[] toutesLesRegions = this.regions;
+    	
+    for(int i=0; i<taille;i++){
+    	int indiceRegion = new SecureRandom().nextInt(toutesLesRegions.length) + 1;	
+    	aRenvoyer[i]=this.regions[indiceRegion];
+    	for (int r = indiceRegion; r<(toutesLesRegions.length-1;r++){
+    		this.regions[r] = this.regions[r+1];
+    	}
+    	this.toutesLesRegions--;
+    	}
+    
+    	//Region[] toutesLesRegions = plateau.obtenirToutesLesRegions();
+    	//int nbRegionAAttribuer = toutesLesRegions.length/nombreDeJoueur;
+    	
+    	
+    //	for(int nbRegionAtribuer = 0; nbRegionAtribuer<=nbRegionAAttribuer; nbRegionAtribuer++)
+    //	{
+    	//	Region[] regionAAttribuer = plateau.obtenirToutesLesRegionsNonAttribuee();
+    	//	int indiceRegion = new SecureRandom().nextInt(regionAAttribuer.length) + 1;
+    	//	regionAAttribuer[indiceRegion].proprietaire = this;
+    		//joueur.obtenirRegionDuJoueur();
+    	//	System.out.println(regionAAttribuer[indiceRegion].nom + "attribue a" + this.obtenirNomJoueur());
+    	//}
+    	return aRenvoyer;
+    }
 }
