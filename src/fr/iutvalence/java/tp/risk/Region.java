@@ -5,6 +5,7 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Scanner;
 
 /**
  * TODO.
@@ -27,7 +28,7 @@ public class Region {
     /** TODO. */
     public Region(String nom) {
         this.nom = nom;
-        this.nbArmee = 0;
+        this.nbArmee = 1;
         this.proprietaire=null;
     }
 
@@ -125,6 +126,18 @@ public class Region {
         	while (( indiceTableau != resultatDeAttaque.length) && (indiceTableau !=resultatDeDefense.length))
         	{
         		if (resultatDeAttaque[indiceTableau]>resultatDeDefense[indiceTableau] ) {
+        			if(regionDefensive.nbArmee==1){
+        				this.enleverArmee(1);
+        				regionDefensive.proprietaire=this.proprietaire;
+        				
+        				
+        				while (!(this.deplacerArmee(regionDefensive))){
+        					
+        				}
+        				
+        				
+        			}
+        			else
                     regionDefensive.enleverArmee(1);
                 }
                 else {
@@ -142,6 +155,26 @@ public class Region {
         }
 
     }
+
+	private boolean deplacerArmee(Region regionSoutenu)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Combien de troupes voulez vous déplacer ?");
+		String i = sc.nextLine();
+		int nbTroupesADeplacer;
+		nbTroupesADeplacer = Integer.parseInt(i); 
+		if (this.nbArmee>nbTroupesADeplacer){
+			this.nbArmee=this.nbArmee-nbTroupesADeplacer;
+			regionSoutenu.nbArmee=regionSoutenu.nbArmee+nbTroupesADeplacer;
+			return true;
+		}
+		else
+			System.out.println("Vous ne possedez pas assez d'armée pour cette action ");
+		return false;
+		
+		// TODO Auto-generated method stub
+		
+	}
     
     
     

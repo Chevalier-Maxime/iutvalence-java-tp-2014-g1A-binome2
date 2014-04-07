@@ -15,7 +15,12 @@ public class Plateau {
     private final Continent[] continents;
     /** TODO. */
     private final Region[] regions;
-
+    /** TODO. */
+    private int nbRegionsRestantes;
+    
+    public int nbRegionsRestantes() {
+    	return nbRegionsRestantes;
+    }
     /* Divisez en méthodes privées ! */
     /** TODO. */
     public Plateau() {
@@ -182,7 +187,7 @@ public class Plateau {
 
         this.continents = new Continent[]{Afrique, Asie, AmeriqueDuNord, AmeriqueDuSud, Europe, Oceanie};
         this.regions = new Region[]{GrandeBretagne, Islande, EuropeDuNord, Scandinavie, EuropeDuSud, Ukraine, EuropeOccidentale, Afghanistan, Chine, Inde, Tchita, Japon, Kamchatka, MoyenOrient, Mongolie, Siam, Siberie, Oural, Yakoutie, Alaska, Alberta, AmeriqueCentrale, EtatsDeLOuest, Groenland, TerritoiresDuNordOuest, EtatsDeLEst, Ontario, Quebec, Argentine, Bresil, Perou, Venezuela, Congo, AfriqueDeLEst, Egypte, Madagascar, AfriqueDuNord, AfriqueDuSud, AustralieOrientale, AustralieOccidentale, Indonesie, NouvelleGuinee};
-
+        nbRegionsRestantes = regions.length;
     }
 
     /*public Region[] obtenirToutesLesRegions()
@@ -208,32 +213,24 @@ public class Plateau {
     //exemple : https://github.com/Piplouf/iutvalence-java-tp-2014-g2c-binome3/blob/master/src/JeuDeCarte.java
     
     public Region[] obtenirRegion(int taille) {
-    	assert (taille > 0) && (nombre < this.toutesLesRegions.length);
-    	
-    	Region[] aRenvoyer = new Region[taille];
-    	Region[] toutesLesRegions = this.regions;
-    	
-    for(int i=0; i<taille;i++){
-    	int indiceRegion = new SecureRandom().nextInt(toutesLesRegions.length) + 1;	
-    	aRenvoyer[i]=this.regions[indiceRegion];
-    	for (int r = indiceRegion; r<(toutesLesRegions.length-1;r++){
-    		this.regions[r] = this.regions[r+1];
-    	}
-    	this.toutesLesRegions--;
-    	}
-    
-    	//Region[] toutesLesRegions = plateau.obtenirToutesLesRegions();
-    	//int nbRegionAAttribuer = toutesLesRegions.length/nombreDeJoueur;
-    	
-    	
-    //	for(int nbRegionAtribuer = 0; nbRegionAtribuer<=nbRegionAAttribuer; nbRegionAtribuer++)
-    //	{
-    	//	Region[] regionAAttribuer = plateau.obtenirToutesLesRegionsNonAttribuee();
-    	//	int indiceRegion = new SecureRandom().nextInt(regionAAttribuer.length) + 1;
-    	//	regionAAttribuer[indiceRegion].proprietaire = this;
-    		//joueur.obtenirRegionDuJoueur();
-    	//	System.out.println(regionAAttribuer[indiceRegion].nom + "attribue a" + this.obtenirNomJoueur());
-    	//}
-    	return aRenvoyer;
-    }
+		assert (taille > 0) && (taille <= nbRegionsRestantes);
+
+		Region[] aRenvoyer = new Region[taille];
+
+		SecureRandom rand = new SecureRandom();
+		for (int i = 0; i < taille; i++)
+		{
+			int indiceRegion = rand.nextInt(nbRegionsRestantes);
+			aRenvoyer[i] = this.regions[indiceRegion];
+			//System.arraycopy(regions, r+1, regions, r, nbRegionsRestantes - r);
+			for (int r = indiceRegion; r < (nbRegionsRestantes - 1); r++)
+			{
+				this.regions[r] = this.regions[r + 1];
+			}
+			regions[nbRegionsRestantes-1]=null;
+			nbRegionsRestantes--;
+		}
+
+		return aRenvoyer;
+	}
 }

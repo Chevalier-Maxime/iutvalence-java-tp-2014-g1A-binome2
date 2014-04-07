@@ -20,7 +20,8 @@ public class Joueur
 	
 	public Region[] obtenirRegionDuJoueur()
 	{
-		return RegionDuJoueur.toArray(null);
+		//truc la
+		return RegionDuJoueur.toArray(new Region[RegionDuJoueur.size()]);
 	}
 	
 	//en travaux
