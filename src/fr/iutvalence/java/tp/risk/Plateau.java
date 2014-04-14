@@ -233,4 +233,8 @@ public class Plateau {
 
 		return aRenvoyer;
 	}
+	public Continent[] obtenirContinents()
+	{
+		return continents;
+	}
 }

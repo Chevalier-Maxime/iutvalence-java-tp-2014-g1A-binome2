@@ -18,4 +18,9 @@ public class Continent {
         this.nom = nom;
         this.regions = regions;
     }
+    
+    public Region[] ObtenirRegionContinent()
+    {
+    	return this.regions;
+    }
 }
