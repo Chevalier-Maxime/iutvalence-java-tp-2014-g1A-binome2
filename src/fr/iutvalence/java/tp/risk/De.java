@@ -1,15 +1,27 @@
 package fr.iutvalence.java.tp.risk;
-/* TODO Package. */
-import java.security.SecureRandom;
+
 
 /**
- * TODO.
- *
- * @author TODO
- * @version TODO
+ * @package fr.iutvalence.java.tp.risk
  */
-public class De {
-    public static int lancer() {
-    	return new SecureRandom().nextInt(6) + 1;
-    }
+
+import java.security.SecureRandom;
+
+
+/**
+ * Permet d'obtenir une simulation de lancé de dé.
+ * 
+ * @author strategeek et Chevalier-Maxime
+ */
+
+public class De
+{
+	/**
+	 * Permet de renvoyer un entier entre 1 et 6
+	 * @return un entier entre 1 et 6
+	 */
+	public static int lancer()
+	{
+		return new SecureRandom().nextInt(6) + 1;
+	}
 }
